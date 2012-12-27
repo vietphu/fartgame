@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		04043C8D1688F00600D8605F /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04043C8C1688F00600D8605F /* GameOverLayer.m */; };
-		04043C901688F21800D8605F /* oops.caf in Resources */ = {isa = PBXBuildFile; fileRef = 04043C8F1688F21800D8605F /* oops.caf */; };
-		042453A51689C84700BA8DA1 /* muscle_car.png in Resources */ = {isa = PBXBuildFile; fileRef = 042453A41689C84700BA8DA1 /* muscle_car.png */; };
-		04574D9A1689389A00E0596D /* green_health_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 04574D991689389A00E0596D /* green_health_bar.png */; };
-		04574D9C16893BCF00E0596D /* red_health_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 04574D9B16893BCF00E0596D /* red_health_bar.png */; };
 		045A00291688FA4A00F1D692 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 045A00261688FA4A00F1D692 /* Default-568h@2x.png */; };
 		045A002A1688FA4A00F1D692 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 045A00271688FA4A00F1D692 /* Default.png */; };
 		045A002B1688FA4A00F1D692 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 045A00281688FA4A00F1D692 /* Default@2x.png */; };
@@ -142,16 +138,16 @@
 		04D821F41688BA9F007FD766 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D821F31688BA9F007FD766 /* MenuLayer.m */; };
 		04D821F71688BB87007FD766 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D821F61688BB87007FD766 /* GameLayer.m */; };
 		04D822011688CD48007FD766 /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D822001688CD48007FD766 /* HUDLayer.m */; };
+		04DC9D22168C55240065FFBA /* green_health_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DC9D1F168C55240065FFBA /* green_health_bar.png */; };
+		04DC9D23168C55240065FFBA /* muscle_car.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DC9D20168C55240065FFBA /* muscle_car.png */; };
+		04DC9D24168C55240065FFBA /* red_health_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DC9D21168C55240065FFBA /* red_health_bar.png */; };
+		04DC9D27168C55300065FFBA /* car.caf in Resources */ = {isa = PBXBuildFile; fileRef = 04DC9D25168C55300065FFBA /* car.caf */; };
+		04DC9D28168C55300065FFBA /* oops.caf in Resources */ = {isa = PBXBuildFile; fileRef = 04DC9D26168C55300065FFBA /* oops.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		04043C8B1688F00600D8605F /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
 		04043C8C1688F00600D8605F /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
-		04043C8F1688F21800D8605F /* oops.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = oops.caf; sourceTree = "<group>"; };
-		042453A31689C77D00BA8DA1 /* car.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = car.caf; sourceTree = "<group>"; };
-		042453A41689C84700BA8DA1 /* muscle_car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muscle_car.png; sourceTree = "<group>"; };
-		04574D991689389A00E0596D /* green_health_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_health_bar.png; sourceTree = "<group>"; };
-		04574D9B16893BCF00E0596D /* red_health_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_health_bar.png; sourceTree = "<group>"; };
 		045A00261688FA4A00F1D692 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Default-568h@2x.png"; sourceTree = "<group>"; };
 		045A00271688FA4A00F1D692 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		045A00281688FA4A00F1D692 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
@@ -420,6 +416,11 @@
 		04D821F61688BB87007FD766 /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		04D821FF1688CD48007FD766 /* HUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDLayer.h; sourceTree = "<group>"; };
 		04D822001688CD48007FD766 /* HUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDLayer.m; sourceTree = "<group>"; };
+		04DC9D1F168C55240065FFBA /* green_health_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = green_health_bar.png; path = Graphics/green_health_bar.png; sourceTree = "<group>"; };
+		04DC9D20168C55240065FFBA /* muscle_car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = muscle_car.png; path = Graphics/muscle_car.png; sourceTree = "<group>"; };
+		04DC9D21168C55240065FFBA /* red_health_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = red_health_bar.png; path = Graphics/red_health_bar.png; sourceTree = "<group>"; };
+		04DC9D25168C55300065FFBA /* car.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = car.caf; path = "Fart Game/Sound/car.caf"; sourceTree = "<group>"; };
+		04DC9D26168C55300065FFBA /* oops.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = oops.caf; path = "Fart Game/Sound/oops.caf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -445,9 +446,9 @@
 		042453A61689C85000BA8DA1 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				04574D991689389A00E0596D /* green_health_bar.png */,
-				04574D9B16893BCF00E0596D /* red_health_bar.png */,
-				042453A41689C84700BA8DA1 /* muscle_car.png */,
+				04DC9D1F168C55240065FFBA /* green_health_bar.png */,
+				04DC9D20168C55240065FFBA /* muscle_car.png */,
+				04DC9D21168C55240065FFBA /* red_health_bar.png */,
 			);
 			name = Graphics;
 			sourceTree = "<group>";
@@ -455,8 +456,8 @@
 		04574D971688FF4500E0596D /* Sound */ = {
 			isa = PBXGroup;
 			children = (
-				042453A31689C77D00BA8DA1 /* car.caf */,
-				04043C8F1688F21800D8605F /* oops.caf */,
+				04DC9D25168C55300065FFBA /* car.caf */,
+				04DC9D26168C55300065FFBA /* oops.caf */,
 			);
 			name = Sound;
 			path = ..;
@@ -946,13 +947,14 @@
 				04D820831688B9E8007FD766 /* Icon@2x.png in Resources */,
 				04D820861688B9E8007FD766 /* iTunesArtwork in Resources */,
 				04D821C41688B9EB007FD766 /* ChangeLog in Resources */,
-				04043C901688F21800D8605F /* oops.caf in Resources */,
 				045A00291688FA4A00F1D692 /* Default-568h@2x.png in Resources */,
 				045A002A1688FA4A00F1D692 /* Default.png in Resources */,
 				045A002B1688FA4A00F1D692 /* Default@2x.png in Resources */,
-				04574D9A1689389A00E0596D /* green_health_bar.png in Resources */,
-				04574D9C16893BCF00E0596D /* red_health_bar.png in Resources */,
-				042453A51689C84700BA8DA1 /* muscle_car.png in Resources */,
+				04DC9D22168C55240065FFBA /* green_health_bar.png in Resources */,
+				04DC9D23168C55240065FFBA /* muscle_car.png in Resources */,
+				04DC9D24168C55240065FFBA /* red_health_bar.png in Resources */,
+				04DC9D27168C55300065FFBA /* car.caf in Resources */,
+				04DC9D28168C55300065FFBA /* oops.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
