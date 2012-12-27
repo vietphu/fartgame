@@ -15,6 +15,7 @@
 		0418B126168CF3F60044A4F1 /* car_van.png in Resources */ = {isa = PBXBuildFile; fileRef = 0418B11F168CF3F60044A4F1 /* car_van.png */; };
 		0418B127168CF3F60044A4F1 /* girl_angry.png in Resources */ = {isa = PBXBuildFile; fileRef = 0418B120168CF3F60044A4F1 /* girl_angry.png */; };
 		0418B128168CF3F60044A4F1 /* girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 0418B121168CF3F60044A4F1 /* girl.png */; };
+		04400A69168D14BC005B59A8 /* background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 04400A68168D14BC005B59A8 /* background-hd.png */; };
 		045A00291688FA4A00F1D692 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 045A00261688FA4A00F1D692 /* Default-568h@2x.png */; };
 		045A002A1688FA4A00F1D692 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 045A00271688FA4A00F1D692 /* Default.png */; };
 		045A002B1688FA4A00F1D692 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 045A00281688FA4A00F1D692 /* Default@2x.png */; };
@@ -162,6 +163,7 @@
 		0418B11F168CF3F60044A4F1 /* car_van.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car_van.png; sourceTree = "<group>"; };
 		0418B120168CF3F60044A4F1 /* girl_angry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = girl_angry.png; sourceTree = "<group>"; };
 		0418B121168CF3F60044A4F1 /* girl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = girl.png; sourceTree = "<group>"; };
+		04400A68168D14BC005B59A8 /* background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-hd.png"; sourceTree = "<group>"; };
 		045A00261688FA4A00F1D692 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Default-568h@2x.png"; sourceTree = "<group>"; };
 		045A00271688FA4A00F1D692 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		045A00281688FA4A00F1D692 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
@@ -461,6 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				0418B11B168CF3F60044A4F1 /* background.png */,
+				04400A68168D14BC005B59A8 /* background-hd.png */,
 				0418B11C168CF3F60044A4F1 /* boy_oops.png */,
 				0418B11D168CF3F60044A4F1 /* boy.png */,
 				0418B11E168CF3F60044A4F1 /* car_small.png */,
@@ -983,6 +986,7 @@
 				0418B126168CF3F60044A4F1 /* car_van.png in Resources */,
 				0418B127168CF3F60044A4F1 /* girl_angry.png in Resources */,
 				0418B128168CF3F60044A4F1 /* girl.png in Resources */,
+				04400A69168D14BC005B59A8 /* background-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1150,6 +1154,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ed van Olst (5873BSKCVE)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1163,6 +1168,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "89D661D2-BEAD-47C6-A6FC-A85CCEAD1F64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

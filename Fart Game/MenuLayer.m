@@ -40,14 +40,14 @@
 
 -(void) setUpMenu
 {
-    CCLabelTTF *newGame = [CCLabelTTF labelWithString:@"New Game" fontName:@"Marker Felt" fontSize:20];
+    CCLabelTTF *newGame = [CCLabelTTF labelWithString:@"New Game" fontName:@"Marker Felt" fontSize:24];
     CCMenuItemLabel *start = [CCMenuItemLabel itemWithLabel:newGame target:self selector:@selector(startGame:)];
 
-    CCLabelTTF *help = [CCLabelTTF labelWithString:@"Help" fontName:@"Marker Felt" fontSize:20];
+    CCLabelTTF *help = [CCLabelTTF labelWithString:@"Help" fontName:@"Marker Felt" fontSize:24];
     CCMenuItemLabel *showHelp = [CCMenuItemLabel itemWithLabel:help target:self selector:@selector(showHelp:)];
 
     CCMenu *menu = [CCMenu menuWithItems:start, showHelp, nil];
-    [menu alignItemsVertically];
+    [menu alignItemsHorizontallyWithPadding:50];
     [self addChild:menu];
 }
 

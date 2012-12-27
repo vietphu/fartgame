@@ -1,5 +1,7 @@
 #import "GameOverLayer.h"
 #import "SimpleAudioEngine.h"
+#import "GameLayer.h"
+#import "MenuLayer.h"
 
 @implementation GameOverLayer
 
@@ -10,6 +12,18 @@
     return scene;
 }
 
+- (void) startGame: (CCMenuItem  *) menuItem
+{
+    CCScene *gameScene = [GameLayer scene];
+    [[CCDirector sharedDirector] replaceScene:gameScene];
+}
+
+- (void) goHome: (CCMenuItem  *) menuItem
+{
+    CCScene *menuScene = [MenuLayer scene];
+    [[CCDirector sharedDirector] replaceScene:menuScene];
+}
+
 - (id)initWithScore:(int)score {
     if ((self = [super init])) {
         
@@ -17,17 +31,24 @@
         [[SimpleAudioEngine sharedEngine] playEffect:@"oops.caf"];
         
         NSString * message;
-        //if (won) {
-        //    message = @"You Won!";
-        //} else {
-            message = @"Game Over!";
-        //}
+        message = @"Game Over!";
         
         CGSize winSize = [[CCDirector sharedDirector] winSize];
-        CCLabelTTF * label = [CCLabelTTF labelWithString:message fontName:@"Arial" fontSize:32];
-        //label.color = ccc3(0,0,0);
-        label.position = ccp(winSize.width/2, winSize.height/2);
+        CCLabelTTF * label = [CCLabelTTF labelWithString:message fontName:@"Marker Felt" fontSize:64];
+        label.position = ccp(winSize.width/2, winSize.height- 100);
+
         [self addChild:label];
+        
+        CCLabelTTF *tryAgain = [CCLabelTTF labelWithString:@"Try Again" fontName:@"Marker Felt" fontSize:24];
+        CCMenuItemLabel *retry = [CCMenuItemLabel itemWithLabel:tryAgain target:self selector:@selector(startGame:)];
+        
+        CCLabelTTF *home = [CCLabelTTF labelWithString:@"Home" fontName:@"Marker Felt" fontSize:24];
+        CCMenuItemLabel *goHome = [CCMenuItemLabel itemWithLabel:home target:self selector:@selector(goHome:)];
+        
+        CCMenu *menu = [CCMenu menuWithItems:goHome, retry, nil];
+        [menu alignItemsHorizontallyWithPadding:50];
+        [self addChild:menu];
+
 //        
 //        [self runAction:
 //         [CCSequence actions:
