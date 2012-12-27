@@ -24,11 +24,29 @@
     [[CCDirector sharedDirector] replaceScene:gameScene];
 }
 
+- (void) showHelp: (CCMenuItem *)menuItem
+{
+    NSLog(@"Show help");
+    CCSprite *help = [CCSprite spriteWithFile:@"help.png"];
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    //int minY = monster.contentSize.height / 2;
+    //int maxY = winSize.height - monster.contentSize.height/2;
+    //int rangeY = maxY - minY;
+    //int actualY = (arc4random() % rangeY) + minY;
+    help.position = ccp(winSize.width/2, winSize.height/2);
+    [self addChild:help];
+
+}
+
 -(void) setUpMenu
 {
     CCLabelTTF *newGame = [CCLabelTTF labelWithString:@"New Game" fontName:@"Marker Felt" fontSize:20];
     CCMenuItemLabel *start = [CCMenuItemLabel itemWithLabel:newGame target:self selector:@selector(startGame:)];
-    CCMenu *menu = [CCMenu menuWithItems:start, nil];
+
+    CCLabelTTF *help = [CCLabelTTF labelWithString:@"Help" fontName:@"Marker Felt" fontSize:20];
+    CCMenuItemLabel *showHelp = [CCMenuItemLabel itemWithLabel:help target:self selector:@selector(showHelp:)];
+
+    CCMenu *menu = [CCMenu menuWithItems:start, showHelp, nil];
     [menu alignItemsVertically];
     [self addChild:menu];
 }

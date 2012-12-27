@@ -5,8 +5,6 @@
 
 @property (nonatomic, retain) HUDLayer *myHUDLayer;
 
-//@property (assign) BOOL farting;
-
 +(CCScene *) scene;
 
 @end
