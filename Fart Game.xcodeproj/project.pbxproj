@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04043C8D1688F00600D8605F /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04043C8C1688F00600D8605F /* GameOverLayer.m */; };
+		04043C901688F21800D8605F /* oops.caf in Resources */ = {isa = PBXBuildFile; fileRef = 04043C8F1688F21800D8605F /* oops.caf */; };
+		042453A51689C84700BA8DA1 /* muscle_car.png in Resources */ = {isa = PBXBuildFile; fileRef = 042453A41689C84700BA8DA1 /* muscle_car.png */; };
+		04574D9A1689389A00E0596D /* green_health_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 04574D991689389A00E0596D /* green_health_bar.png */; };
+		04574D9C16893BCF00E0596D /* red_health_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 04574D9B16893BCF00E0596D /* red_health_bar.png */; };
+		045A00291688FA4A00F1D692 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 045A00261688FA4A00F1D692 /* Default-568h@2x.png */; };
+		045A002A1688FA4A00F1D692 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 045A00271688FA4A00F1D692 /* Default.png */; };
+		045A002B1688FA4A00F1D692 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 045A00281688FA4A00F1D692 /* Default@2x.png */; };
 		04D8205B1688B9E8007FD766 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D8205A1688B9E8007FD766 /* QuartzCore.framework */; };
 		04D8205D1688B9E8007FD766 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D8205C1688B9E8007FD766 /* OpenGLES.framework */; };
 		04D8205F1688B9E8007FD766 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D8205E1688B9E8007FD766 /* OpenAL.framework */; };
@@ -16,7 +24,6 @@
 		04D820671688B9E8007FD766 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D820661688B9E8007FD766 /* Foundation.framework */; };
 		04D820691688B9E8007FD766 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D820681688B9E8007FD766 /* CoreGraphics.framework */; };
 		04D8206B1688B9E8007FD766 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D8206A1688B9E8007FD766 /* GameKit.framework */; };
-		04D8206F1688B9E8007FD766 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D8206E1688B9E8007FD766 /* Default.png */; };
 		04D820711688B9E8007FD766 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D820701688B9E8007FD766 /* Default-Landscape~ipad.png */; };
 		04D820731688B9E8007FD766 /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D820721688B9E8007FD766 /* fps_images.png */; };
 		04D820751688B9E8007FD766 /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D820741688B9E8007FD766 /* fps_images-hd.png */; };
@@ -131,11 +138,23 @@
 		04D821DE1688B9EC007FD766 /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = 04D821DD1688B9EC007FD766 /* vec4.c */; };
 		04D821E31688B9EC007FD766 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D821E21688B9EC007FD766 /* main.m */; };
 		04D821E61688B9EC007FD766 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D821E51688B9EC007FD766 /* AppDelegate.m */; };
-		04D821E91688B9EC007FD766 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D821E81688B9EC007FD766 /* HelloWorldLayer.m */; };
 		04D821EC1688B9EC007FD766 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D821EB1688B9EC007FD766 /* IntroLayer.m */; };
+		04D821F41688BA9F007FD766 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D821F31688BA9F007FD766 /* MenuLayer.m */; };
+		04D821F71688BB87007FD766 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D821F61688BB87007FD766 /* GameLayer.m */; };
+		04D822011688CD48007FD766 /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D822001688CD48007FD766 /* HUDLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04043C8B1688F00600D8605F /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
+		04043C8C1688F00600D8605F /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
+		04043C8F1688F21800D8605F /* oops.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = oops.caf; sourceTree = "<group>"; };
+		042453A31689C77D00BA8DA1 /* car.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = car.caf; sourceTree = "<group>"; };
+		042453A41689C84700BA8DA1 /* muscle_car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muscle_car.png; sourceTree = "<group>"; };
+		04574D991689389A00E0596D /* green_health_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_health_bar.png; sourceTree = "<group>"; };
+		04574D9B16893BCF00E0596D /* red_health_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_health_bar.png; sourceTree = "<group>"; };
+		045A00261688FA4A00F1D692 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Default-568h@2x.png"; sourceTree = "<group>"; };
+		045A00271688FA4A00F1D692 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
+		045A00281688FA4A00F1D692 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
 		04D820561688B9E8007FD766 /* Fart Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fart Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D8205A1688B9E8007FD766 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		04D8205C1688B9E8007FD766 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -146,7 +165,6 @@
 		04D820661688B9E8007FD766 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		04D820681688B9E8007FD766 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		04D8206A1688B9E8007FD766 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
-		04D8206E1688B9E8007FD766 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		04D820701688B9E8007FD766 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "Resources/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		04D820721688B9E8007FD766 /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fps_images.png; path = Resources/fps_images.png; sourceTree = "<group>"; };
 		04D820741688B9E8007FD766 /* fps_images-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fps_images-hd.png"; path = "Resources/fps_images-hd.png"; sourceTree = "<group>"; };
@@ -394,10 +412,14 @@
 		04D821E21688B9EC007FD766 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04D821E41688B9EC007FD766 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04D821E51688B9EC007FD766 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		04D821E71688B9EC007FD766 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		04D821E81688B9EC007FD766 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		04D821EA1688B9EC007FD766 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		04D821EB1688B9EC007FD766 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		04D821F21688BA9F007FD766 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
+		04D821F31688BA9F007FD766 /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
+		04D821F51688BB87007FD766 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
+		04D821F61688BB87007FD766 /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
+		04D821FF1688CD48007FD766 /* HUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDLayer.h; sourceTree = "<group>"; };
+		04D822001688CD48007FD766 /* HUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -420,6 +442,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042453A61689C85000BA8DA1 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				04574D991689389A00E0596D /* green_health_bar.png */,
+				04574D9B16893BCF00E0596D /* red_health_bar.png */,
+				042453A41689C84700BA8DA1 /* muscle_car.png */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
+		04574D971688FF4500E0596D /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				042453A31689C77D00BA8DA1 /* car.caf */,
+				04043C8F1688F21800D8605F /* oops.caf */,
+			);
+			name = Sound;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		04D8204B1688B9E8007FD766 = {
 			isa = PBXGroup;
 			children = (
@@ -458,10 +500,18 @@
 			children = (
 				04D821E41688B9EC007FD766 /* AppDelegate.h */,
 				04D821E51688B9EC007FD766 /* AppDelegate.m */,
-				04D821E71688B9EC007FD766 /* HelloWorldLayer.h */,
-				04D821E81688B9EC007FD766 /* HelloWorldLayer.m */,
 				04D821EA1688B9EC007FD766 /* IntroLayer.h */,
 				04D821EB1688B9EC007FD766 /* IntroLayer.m */,
+				04D821F21688BA9F007FD766 /* MenuLayer.h */,
+				04D821F31688BA9F007FD766 /* MenuLayer.m */,
+				04D821F51688BB87007FD766 /* GameLayer.h */,
+				04D821F61688BB87007FD766 /* GameLayer.m */,
+				04D821FF1688CD48007FD766 /* HUDLayer.h */,
+				04D822001688CD48007FD766 /* HUDLayer.m */,
+				04043C8B1688F00600D8605F /* GameOverLayer.h */,
+				04043C8C1688F00600D8605F /* GameOverLayer.m */,
+				042453A61689C85000BA8DA1 /* Graphics */,
+				04574D971688FF4500E0596D /* Sound */,
 				04D8206D1688B9E8007FD766 /* Resources */,
 				04D820871688B9E8007FD766 /* libs */,
 				04D821E01688B9EC007FD766 /* Supporting Files */,
@@ -472,7 +522,9 @@
 		04D8206D1688B9E8007FD766 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				04D8206E1688B9E8007FD766 /* Default.png */,
+				045A00261688FA4A00F1D692 /* Default-568h@2x.png */,
+				045A00271688FA4A00F1D692 /* Default.png */,
+				045A00281688FA4A00F1D692 /* Default@2x.png */,
 				04D820701688B9E8007FD766 /* Default-Landscape~ipad.png */,
 				04D820721688B9E8007FD766 /* fps_images.png */,
 				04D820741688B9E8007FD766 /* fps_images-hd.png */,
@@ -882,7 +934,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04D8206F1688B9E8007FD766 /* Default.png in Resources */,
 				04D820711688B9E8007FD766 /* Default-Landscape~ipad.png in Resources */,
 				04D820731688B9E8007FD766 /* fps_images.png in Resources */,
 				04D820751688B9E8007FD766 /* fps_images-hd.png in Resources */,
@@ -895,6 +946,13 @@
 				04D820831688B9E8007FD766 /* Icon@2x.png in Resources */,
 				04D820861688B9E8007FD766 /* iTunesArtwork in Resources */,
 				04D821C41688B9EB007FD766 /* ChangeLog in Resources */,
+				04043C901688F21800D8605F /* oops.caf in Resources */,
+				045A00291688FA4A00F1D692 /* Default-568h@2x.png in Resources */,
+				045A002A1688FA4A00F1D692 /* Default.png in Resources */,
+				045A002B1688FA4A00F1D692 /* Default@2x.png in Resources */,
+				04574D9A1689389A00E0596D /* green_health_bar.png in Resources */,
+				04574D9C16893BCF00E0596D /* red_health_bar.png in Resources */,
+				042453A51689C84700BA8DA1 /* muscle_car.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1007,8 +1065,11 @@
 				04D821DE1688B9EC007FD766 /* vec4.c in Sources */,
 				04D821E31688B9EC007FD766 /* main.m in Sources */,
 				04D821E61688B9EC007FD766 /* AppDelegate.m in Sources */,
-				04D821E91688B9EC007FD766 /* HelloWorldLayer.m in Sources */,
 				04D821EC1688B9EC007FD766 /* IntroLayer.m in Sources */,
+				04D821F41688BA9F007FD766 /* MenuLayer.m in Sources */,
+				04D821F71688BB87007FD766 /* GameLayer.m in Sources */,
+				04D822011688CD48007FD766 /* HUDLayer.m in Sources */,
+				04043C8D1688F00600D8605F /* GameOverLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1116,6 +1177,7 @@
 				04D821F11688B9EC007FD766 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
