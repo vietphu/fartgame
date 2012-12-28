@@ -5,116 +5,132 @@
 @implementation GameLayer {
     CCSprite *boy;
     CCSprite *girl;
-    bool carPassing;
+    CCTimer *gameOverTimer;
+    bool driving;
     bool farting;
-    bool gameOver;
     bool gassing;
-    int delay;
     int fart;
     int fartSound;
     int gas;
+    int gasSound;
     int score;
     float regen;
 }
 
-+(CCScene *) scene
-{
-	CCScene *scene = [CCScene node];
+#pragma mark End Game
 
-    GameLayer *layer = [GameLayer node];
-	[scene addChild: layer];
-    
-    HUDLayer *hud = [HUDLayer node];
-    [scene addChild:hud];
-	
-    layer.myHUDLayer = hud;
-    
-    return scene;
+- (void)gameOver:(ccTime)dt
+{
+    [self unschedule:@selector(gameOver:)];
+    CCScene *gameOverScene = [GameOverLayer sceneWithScore:score];
+    [[CCDirector sharedDirector] replaceScene:gameOverScene];
+
 }
+
+- (void)endGame
+{
+    // Disable touches
+    [self setIsTouchEnabled:NO];
+    
+    // Finish fart sound but end loop
+    [self playFart];
+    alSourcei(fartSound, AL_LOOPING, 0);
+    
+    // Unschedule update
+    [self unschedule:@selector(update:)];
+
+    // Show Oops & Angry
+    [boy setTexture:[[CCTextureCache sharedTextureCache] addImage:@"boy_oops.png"]];
+    [girl setTexture:[[CCTextureCache sharedTextureCache] addImage:@"girl_angry.png"]];
+    
+    // Clean sprites/scenes?
+
+    // Show Game Over after 3 seconds
+    [self schedule:@selector(gameOver:) interval:3];
+}
+
+#pragma mark Sound Control
+
+- (void)playFart
+{
+    if (!fartSound) {
+        fartSound = [[SimpleAudioEngine sharedEngine] playEffect:@"fart.caf"];
+        alSourcei(fartSound, AL_LOOPING, 1);
+    }
+    else {
+        ALint state;
+        alGetSourcei(fartSound, AL_SOURCE_STATE, &state);
+        if (state != AL_PLAYING) {
+            alSourcePlay(fartSound);
+        }
+    }
+}
+
+- (void)pauseFart
+{
+    if (fartSound) {
+        ALint state;
+        alGetSourcei(fartSound, AL_SOURCE_STATE, &state);
+        if (state == AL_PLAYING) {
+            alSourcePause(fartSound);
+        }
+    }
+}
+
+# pragma mark Game Control
 
 - (void)addCar
 {
-    CCSprite * car = [CCSprite spriteWithFile:@"car_small.png"];
-    CGSize winSize = [CCDirector sharedDirector].winSize;
-    //int minY = monster.contentSize.height / 2;
-    //int maxY = winSize.height - monster.contentSize.height/2;
-    //int rangeY = maxY - minY;
-    //int actualY = (arc4random() % rangeY) + minY;
-    car.position = ccp(winSize.width + car.contentSize.width/2, winSize.height/2-5);
-    [self addChild:car];
+    if (!driving) {
+        // Create car
+        CCSprite * car = [CCSprite spriteWithFile:@"car_small.png"];
+        CGSize winSize = [CCDirector sharedDirector].winSize;
+        car.position = ccp(winSize.width + car.contentSize.width/2, winSize.height/2-5);
+        [self addChild:car];
 
-    CCMoveTo * actionMove = [CCMoveBy actionWithDuration:2
-                                                position:ccp(-(winSize.width+car.contentSize.width),0)];
-    CCCallBlockN * actionMoveDone = [CCCallBlockN actionWithBlock:^(CCNode *node) {
-        [node removeFromParentAndCleanup:YES];
-        carPassing = NO;
-        //set next car delay
-    }];
-    [car runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
-    //[car runAction: [CCMoveBy actionWithDuration:2 position:ccp(-(winSize.width+car.contentSize.width),0)]];
+        // Movement
+        CCMoveTo * actionMove = [CCMoveBy actionWithDuration:2 position:ccp(-(winSize.width+car.contentSize.width),0)];
+        CCCallBlockN * actionMoveDone = [CCCallBlockN actionWithBlock:^(CCNode *node) {
+            [node removeFromParentAndCleanup:YES];
+            driving = NO;
+        }];
+    
+        // Run
+        [car runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
+    }
 }
 
 - (void)update:(ccTime)dt
 {
-    if (fart == 100) { // Game Over!
-        gameOver = YES;
-    }
+    // Game Over!
+    if (fart == 100) { [self endGame]; return; }
     
-    if (gameOver) {
-        [boy setTexture:[[CCTextureCache sharedTextureCache] addImage:@"boy_oops.png"]];
-        [girl setTexture:[[CCTextureCache sharedTextureCache] addImage:@"girl_angry.png"]];
-        CCLabelTTF *label = [CCLabelTTF labelWithString:@"Busted!" fontName:@"Marker Felt" fontSize:30];
-		CGSize size = [[CCDirector sharedDirector] winSize];
-		label.position =  ccp( size.width /2 , size.height/2 );
-		[self addChild: label];
-        if (delay == 10) {
-            [self unschedule:@selector(update:)];
-            CCScene *gameOverScene = [GameOverLayer sceneWithScore:score];
-            [[CCDirector sharedDirector] replaceScene:gameOverScene];
-        }
-        delay++;
-        return;
-    }
-    
-    // Generate random car if no car is passing
-    // range 1-10
-    if (!carPassing) {
+    // Generate Car
+    if (!driving) {
         if ((arc4random() % 20) + 1 == 7) {
-            carPassing = YES;
             [[SimpleAudioEngine sharedEngine] playEffect:@"car.caf"]; // 2 sec audio file
             [self addCar];
+            driving = YES;
         }
     }
-    else {
-
-    }
     
+    // Update Score
     score++;
     [self.myHUDLayer updateScoreLabel:score];
 
-    if (farting && fart > 0) {
-        if (!carPassing) { // busted!
-            //NSLog(@"Busted!");
-            gameOver = YES;
-        }
+    // Fart
+    if (farting && fart > 0)
+    {
+        //Busted
+        if (!driving) { [self endGame]; return; }
         else {
-            if (!fartSound) {
-                fartSound = [[SimpleAudioEngine sharedEngine] playEffect:@"fart.caf"];
-                alSourcei(fartSound, AL_LOOPING, 1);
-            }
-            else {
-                // If fart not playing, play it!
-                ALint state;
-                alGetSourcei(fartSound, AL_SOURCE_STATE, &state);
-                if (state != AL_PLAYING) {
-                    alSourcePlay(fartSound);
-                }
-            }
             fart--;
+            [self playFart];
             [self.myHUDLayer updateFartLabel:fart];
         }
     }
     
+    // Gas
     if (gassing && gas > 0) {
         fart--;
         [self.myHUDLayer updateFartLabel:fart];
@@ -122,6 +138,7 @@
         [self.myHUDLayer updateGasLabel:gas];
     }
     
+    // Regen
     if (!farting && !gassing) {
         regen++;
         if (regen == 2) { // higher value = slower fart regeneration
@@ -132,44 +149,40 @@
     }
 }
 
-- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+#pragma mark Handle Touches
+
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
     UITouch *touch = [touches anyObject];
     CGPoint location = [self convertTouchToNodeSpace:touch];
     CGSize size = [[CCDirector sharedDirector] winSize];
-
-    if (location.x < size.width/2) {
-        farting = YES;
-    }
-    else {
-        gassing = YES;
-    }
+    if (location.x < size.width/2) { farting = YES; }
+    else { gassing = YES; }
 }
 
-- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
     farting = NO;
-    ALint state;
-    alGetSourcei(fartSound, AL_SOURCE_STATE, &state);
-    if (state == AL_PLAYING) {
-        alSourcePause(fartSound);
-    }
-
     gassing = NO;
+    [self pauseFart];
 }
 
+#pragma mark Init
 
 -(id) init
 {
 	if( (self=[super init]) ) {
         // Init vars
-        carPassing = NO;
-        delay = 0;
-        fart = 70;
+        driving = NO;
         farting = NO;
-        gameOver = NO;
-        gas = 100;
         gassing = NO;
-        regen = 0;
+        
+        fart = 70;
+        gas = 100;
         score = 0;
+        
+        regen = 0;
+        CGSize winSize = [CCDirector sharedDirector].winSize;
         
         // Enable Touches
         [self setIsTouchEnabled:YES];
@@ -177,13 +190,12 @@
         // Start Game-loop
         [self schedule:@selector(update:) interval:0.1];
 
-        
-        CGSize winSize = [CCDirector sharedDirector].winSize;
-
+        // Set Background
         CCSprite *bg = [CCSprite spriteWithFile:@"background.png"];
         bg.position = ccp(winSize.width/2,winSize.height/2);
         [self addChild:bg];
 
+        // Set People
         boy = [CCSprite spriteWithFile:@"boy.png"];
         girl = [CCSprite spriteWithFile:@"girl.png"];
         boy.position = ccp(80,120);
@@ -198,6 +210,21 @@
 - (void) dealloc
 {
 	[super dealloc];
+}
+
++(CCScene *) scene
+{
+	CCScene *scene = [CCScene node];
+    
+    GameLayer *layer = [GameLayer node];
+	[scene addChild: layer];
+    
+    HUDLayer *hud = [HUDLayer node];
+    [scene addChild:hud];
+	
+    layer.myHUDLayer = hud;
+    
+    return scene;
 }
 
 @end
