@@ -11,6 +11,7 @@
     bool gassing;
     int delay;
     int fart;
+    int fartSound;
     int gas;
     int score;
     float regen;
@@ -96,8 +97,22 @@
             //NSLog(@"Busted!");
             gameOver = YES;
         }
-        fart--;
-        [self.myHUDLayer updateFartLabel:fart];
+        else {
+            if (!fartSound) {
+                fartSound = [[SimpleAudioEngine sharedEngine] playEffect:@"fart.caf"];
+                alSourcei(fartSound, AL_LOOPING, 1);
+            }
+            else {
+                // If fart not playing, play it!
+                ALint state;
+                alGetSourcei(fartSound, AL_SOURCE_STATE, &state);
+                if (state != AL_PLAYING) {
+                    alSourcePlay(fartSound);
+                }
+            }
+            fart--;
+            [self.myHUDLayer updateFartLabel:fart];
+        }
     }
     
     if (gassing && gas > 0) {
@@ -132,6 +147,12 @@
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     farting = NO;
+    ALint state;
+    alGetSourcei(fartSound, AL_SOURCE_STATE, &state);
+    if (state == AL_PLAYING) {
+        alSourcePause(fartSound);
+    }
+
     gassing = NO;
 }
 
@@ -156,6 +177,7 @@
         // Start Game-loop
         [self schedule:@selector(update:) interval:0.1];
 
+        
         CGSize winSize = [CCDirector sharedDirector].winSize;
 
         CCSprite *bg = [CCSprite spriteWithFile:@"background.png"];

@@ -37,7 +37,11 @@
         CCLabelTTF * label = [CCLabelTTF labelWithString:message fontName:@"Marker Felt" fontSize:64];
         label.position = ccp(winSize.width/2, winSize.height- 100);
 
+        CCLabelTTF *scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Score: %d",score] fontName:@"Marker Felt" fontSize:18];
+        scoreLabel.position = ccp(winSize.width/2, winSize.height- 160);
+        
         [self addChild:label];
+        [self addChild:scoreLabel];
         
         CCLabelTTF *tryAgain = [CCLabelTTF labelWithString:@"Try Again" fontName:@"Marker Felt" fontSize:24];
         CCMenuItemLabel *retry = [CCMenuItemLabel itemWithLabel:tryAgain target:self selector:@selector(startGame:)];
@@ -47,6 +51,7 @@
         
         CCMenu *menu = [CCMenu menuWithItems:goHome, retry, nil];
         [menu alignItemsHorizontallyWithPadding:50];
+        menu.position = ccp(winSize.width/2, 100);
         [self addChild:menu];
 
 //        
