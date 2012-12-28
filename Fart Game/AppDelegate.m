@@ -87,6 +87,8 @@
 	// make main window visible
 	[window_ makeKeyAndVisible];
 	
+    // TestFlight
+    [TestFlight takeOff:@"3dbc1c6fdf27fbd96cf99ea4d92787df_MTcwMDE5MjAxMi0xMi0yNyAwNDo1OTozNy40OTc4Nzg"];
 	return YES;
 }
 
