@@ -7,7 +7,10 @@
 
 #pragma mark - MenuLayer
 
-@implementation MenuLayer
+@implementation MenuLayer {
+    CCSprite *helpSprite;
+    BOOL showingHelp;
+}
 
 +(CCScene *) scene
 {
@@ -26,15 +29,15 @@
 
 - (void) showHelp: (CCMenuItem *)menuItem
 {
-    NSLog(@"Show help");
-    CCSprite *help = [CCSprite spriteWithFile:@"help.png"];
+    showingHelp = YES;
+    helpSprite = [CCSprite spriteWithFile:@"help.png"];
     CGSize winSize = [CCDirector sharedDirector].winSize;
     //int minY = monster.contentSize.height / 2;
     //int maxY = winSize.height - monster.contentSize.height/2;
     //int rangeY = maxY - minY;
     //int actualY = (arc4random() % rangeY) + minY;
-    help.position = ccp(winSize.width/2, winSize.height/2);
-    [self addChild:help];
+    helpSprite.position = ccp(winSize.width/2, winSize.height/2);
+    [self addChild:helpSprite];
 
 }
 
@@ -51,10 +54,22 @@
     [self addChild:menu];
 }
 
+- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (showingHelp) {
+        [self removeChild:helpSprite cleanup:YES];
+        showingHelp = NO;
+    }
+}
+
 -(id) init
 {
 	if( (self=[super init]) ) {
 		
+        showingHelp = NO;
+
+        // Enable Touches
+        [self setIsTouchEnabled:YES];
+
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Fart Game" fontName:@"Marker Felt" fontSize:64];
         
 		// ask director for the window size

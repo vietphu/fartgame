@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04043C8D1688F00600D8605F /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04043C8C1688F00600D8605F /* GameOverLayer.m */; };
+		040F8B39168DD7C400D277CE /* help-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 040F8B38168DD7C400D277CE /* help-hd.png */; };
 		0418B122168CF3F60044A4F1 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0418B11B168CF3F60044A4F1 /* background.png */; };
 		0418B123168CF3F60044A4F1 /* boy_oops.png in Resources */ = {isa = PBXBuildFile; fileRef = 0418B11C168CF3F60044A4F1 /* boy_oops.png */; };
 		0418B124168CF3F60044A4F1 /* boy.png in Resources */ = {isa = PBXBuildFile; fileRef = 0418B11D168CF3F60044A4F1 /* boy.png */; };
@@ -160,6 +161,7 @@
 /* Begin PBXFileReference section */
 		04043C8B1688F00600D8605F /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
 		04043C8C1688F00600D8605F /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
+		040F8B38168DD7C400D277CE /* help-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "help-hd.png"; path = "Graphics/help-hd.png"; sourceTree = "<group>"; };
 		0418B11B168CF3F60044A4F1 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		0418B11C168CF3F60044A4F1 /* boy_oops.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boy_oops.png; sourceTree = "<group>"; };
 		0418B11D168CF3F60044A4F1 /* boy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boy.png; sourceTree = "<group>"; };
@@ -473,6 +475,7 @@
 		042453A61689C85000BA8DA1 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				040F8B38168DD7C400D277CE /* help-hd.png */,
 				0418B11B168CF3F60044A4F1 /* background.png */,
 				04400A68168D14BC005B59A8 /* background-hd.png */,
 				0418B11C168CF3F60044A4F1 /* boy_oops.png */,
@@ -1013,6 +1016,7 @@
 				04400A69168D14BC005B59A8 /* background-hd.png in Resources */,
 				04400A6C168D176B005B59A8 /* car_small-hd.png in Resources */,
 				04400A6E168D1E76005B59A8 /* fart.caf in Resources */,
+				040F8B39168DD7C400D277CE /* help-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
