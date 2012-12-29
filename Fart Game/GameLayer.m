@@ -5,12 +5,12 @@
 @implementation GameLayer {
     CCSprite *boy;
     CCSprite *girl;
-    CCTimer *gameOverTimer;
     bool driving;
     bool farting;
     bool gassing;
-    int fart;
-    int fartSound;
+    int fart; //fart bar length
+    int fartScore;
+    int fartSound; //fart loop
     int gas;
     int gasSound;
     int score;
@@ -38,6 +38,9 @@
     
     // Unschedule update
     [self unschedule:@selector(update:)];
+
+    // Unschedule traffic
+    [self unschedule:@selector(addCar:)];
 
     // Show Oops & Angry
     [boy setTexture:[[CCTextureCache sharedTextureCache] addImage:@"boy_oops.png"]];
@@ -79,44 +82,55 @@
 
 # pragma mark Game Control
 
-- (void)addCar
+- (void)fart:(ccTime)dt
 {
-    if (!driving) {
-        // Create car
-        CCSprite * car = [CCSprite spriteWithFile:@"car_small.png"];
-        CGSize winSize = [CCDirector sharedDirector].winSize;
-        car.position = ccp(winSize.width + car.contentSize.width/2, winSize.height/2-5);
-        [self addChild:car];
+    fartScore += fartScore;
+}
 
-        // Movement
-        CCMoveTo * actionMove = [CCMoveBy actionWithDuration:2 position:ccp(-(winSize.width+car.contentSize.width),0)];
-        CCCallBlockN * actionMoveDone = [CCCallBlockN actionWithBlock:^(CCNode *node) {
-            [node removeFromParentAndCleanup:YES];
-            driving = NO;
-        }];
+- (void)endFart
+{
+    farting = NO;
+    [self unschedule:@selector(fart:)];
+    //Add Score
+    score += fartScore;
+    fartScore = 25; // Reset
+    [self.myHUDLayer updateScoreLabel:score];
+
+}
+
+- (void)addCar:(ccTime)dt
+{
+    [self unschedule:@selector(addCar:)];
     
-        // Run
-        [car runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
-    }
+    // Create car
+    driving = YES;
+    CCSprite * car = [CCSprite spriteWithFile:@"car_small.png"];
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    car.position = ccp(winSize.width + car.contentSize.width/2, winSize.height/2-5);
+    [self addChild:car];
+
+    // Movement
+    CCMoveTo * actionMove = [CCMoveBy actionWithDuration:2 position:ccp(-(winSize.width+car.contentSize.width),0)];
+    CCCallBlockN * actionMoveDone = [CCCallBlockN actionWithBlock:^(CCNode *node) {
+        [node removeFromParentAndCleanup:YES];
+        driving = NO;
+        [self schedule:@selector(addCar:) interval:((arc4random() % (3)) + 1)]; // Schedule next car //( (arc4random() % (max-min+1)) + min )
+    }];
+    
+    // Run
+    [[SimpleAudioEngine sharedEngine] playEffect:@"car.caf"]; // 2 sec audio file
+    [car runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
+}
+
+- (void)addScore
+{
+    [self.myHUDLayer updateScoreLabel:score];    
 }
 
 - (void)update:(ccTime)dt
 {
     // Game Over!
     if (fart == 100) { [self endGame]; return; }
-    
-    // Generate Car
-    if (!driving) {
-        if ((arc4random() % 20) + 1 == 7) {
-            [[SimpleAudioEngine sharedEngine] playEffect:@"car.caf"]; // 2 sec audio file
-            [self addCar];
-            driving = YES;
-        }
-    }
-    
-    // Update Score
-    score++;
-    [self.myHUDLayer updateScoreLabel:score];
 
     // Fart
     if (farting && fart > 0)
@@ -141,7 +155,7 @@
     // Regen
     if (!farting && !gassing) {
         regen++;
-        if (regen == 2) { // higher value = slower fart regeneration
+        if (regen == 1) { // higher value = slower fart regeneration
             regen = 0;
             fart++;
             [self.myHUDLayer updateFartLabel:fart];
@@ -156,13 +170,15 @@
     UITouch *touch = [touches anyObject];
     CGPoint location = [self convertTouchToNodeSpace:touch];
     CGSize size = [[CCDirector sharedDirector] winSize];
-    if (location.x < size.width/2) { farting = YES; }
+    if (location.x < size.width/2) { farting = YES; [self schedule:@selector(fart:) interval:0.5]; }
     else { gassing = YES; }
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    farting = NO;
+    if (farting) {
+        [self endFart];
+    }
     gassing = NO;
     [self pauseFart];
 }
@@ -177,10 +193,11 @@
         farting = NO;
         gassing = NO;
         
-        fart = 70;
+        fart = 60;
         gas = 100;
         score = 0;
         
+        fartScore = 25;
         regen = 0;
         CGSize winSize = [CCDirector sharedDirector].winSize;
         
@@ -202,7 +219,9 @@
         girl.position = ccp(190,120);
         [self addChild:boy z:15];
         [self addChild:girl z:16];
-
+        
+        // Traffic
+        [self schedule:@selector(addCar:) interval:1]; // First car after 1 second
     }
 	return self;
 }
